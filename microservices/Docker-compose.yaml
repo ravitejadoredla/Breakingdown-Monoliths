@@ -1,0 +1,94 @@
+version: '3.3'  # version of compose format
+
+services:
+  landing-service:
+    build: ./landing  # path is relative to docker-compose.yml location
+    hostname: landing-service
+    ports:
+      - 5050:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - landing-service
+
+  # Add more services below
+  #Task 2.0: Updating the Compose.yaml file with the new microservices
+  #Add service: Specifies  the hostname and port number addition module is running on and its path
+  add-service:
+    build: ./add  # path is relative to docker-compose.yml location
+    hostname: add-service
+    ports:
+      - 3001:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - add-service
+  
+  #Sub service: Specifies  the hostname and port number subtraction module is running on and its path
+  sub-service:
+    build: ./sub  # path is relative to docker-compose.yml location
+    hostname: sub-service
+    ports:
+      - 3002:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - sub-service
+
+  #Mult service: Specifies  the hostname and port number Multiplication module is running on and its path
+  mult-service:
+    build: ./mult  # path is relative to docker-compose.yml location
+    hostname: mult-service
+    ports:
+      - 3003:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - mult-service
+
+  #Div service: Specifies  the hostname and port number Division Module is running on and its path
+  div-service:
+    build: ./div  # path is relative to docker-compose.yml location
+    hostname: div-service
+    ports:
+      - 3004:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - div-service
+
+  #GCD service: Specifies  the hostname and port number GCD Module is running on and its path
+  gcd-service:
+    build: ./gcd  # path is relative to docker-compose.yml location
+    hostname: gcd-service
+    ports:
+      - 3005:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - gcd-service
+  
+  #LCM service: Specifies  the hostname and port number LCM Module is running on and its path
+  lcm-service:
+    build: ./lcm  # path is relative to docker-compose.yml location
+    hostname: lcm-service
+    ports:
+      - 3006:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - lcm-service
+  
+  #Exp service: Specifies  the hostname and port number Exponentiation module is running on and its path
+  exp-service:
+    build: ./exp  # path is relative to docker-compose.yml location
+    hostname: exp-service
+    ports:
+      - 3007:5050  # host:container
+    networks:
+      sample:
+        aliases:
+          - exp-service
+
+networks:
+  sample:

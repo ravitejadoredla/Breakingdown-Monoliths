@@ -1,0 +1,32 @@
+<html>
+   <head>
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+   </head>
+   <body class='{{ bg_class }}'>
+      <h1>Arithmetic Microservices</h1>
+      <form action="" method="POST">
+         <!-- Debugging 1.0: Making the type of both the values accepted into number -->
+		 <!-- Debugging 1.1: Putting the default value to 0 to avoid none type problem -->
+         Enter the First number : <input name="first" type="number" value="0">
+         <br>
+         Enter the Second number: <input name="second" type="number" value="0">
+         <br>
+         Enter Operation: <select id="op" name="operation">
+            <option value="add">Addition</option>
+            <option value="minus">Subtraction</option>
+            <option value="multiply">Multiplication</option>
+            <option value="divide">Division</option>
+			
+			<!-- Task 2.1: Adding more modules to the existing services -->
+            <option value="gcd">gcd</option>
+            <option value="lcm">lcm</option>
+            <option value="exp">exp</option>
+          </select>
+         <br><br>
+         <input type="submit" name="submit_button">
+      </form>
+        {% for message in get_flashed_messages() %}
+         {{message}}
+      {% endfor %}
+   </body>
+</html>
